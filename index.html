@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Code Fighters</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+	<div class="infopage">
+
+		<div class="title">
+			<div class="title__logo">
+				<h1>Code Fighters</h1>
+			</div>
+		</div>
+		
+		<div class="mission">
+			<h2 class="mission__title">Mission</h2>
+			<p>Main objective is to guess the opponent's code before he guesses your code.</p>
+			<p>Each correctly guessed code digit is equal to the wound of the opponent and takes away one of his lifes. Three correctly guessed digits mean a victory over the opponent.</p>
+		</div>	
+		
+		<form class="worksheet" onsubmit="return false">	
+			<div class="worksheet__hero">
+				<h2 class="worksheet__hero--title">Choose your fighter</h2>
+				<div class="worksheet__hero--first">
+					<input type="radio" checked name="choice_img" value="1">
+				</div>
+				<div class="worksheet__hero--second">
+					<input type="radio" name="choice_img" value="2">
+				</div>
+			</div>
+			<div class="worksheet__background">
+				<h2 class="worksheet__background--title">Choose game location</h2>
+				<div class="worksheet__background--first">
+					<input type="radio" checked name="choice_bg" value="1">
+				</div>
+				<div class="worksheet__background--second">
+					<input type="radio" name="choice_bg" value="2">
+				</div>
+				<div class="worksheet__background--third">
+					<input type="radio" name="choice_bg" value="3">
+				</div>
+				<div class="worksheet__background--fourth">
+					<input type="radio" name="choice_bg" value="4">
+				</div>
+			</div>
+			<div class="worksheet__form">
+				<h2 class="worksheet__form--title">Enter your name, code and start the game</h2>
+				<input name="name" class="worksheet__form--name" type="text" maxlength="8" value="" placeholder="Name">
+				<input name="code" class="worksheet__form--code" type="text" maxlength="3" value="" placeholder="3 digits code"> 
+				<button class="worksheet__form--button" onclick="validation(this.form)">START</button>
+			</div>
+		</form>	
+		
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+@font-face { 
+	font-family: 'Press Start 2P'; 
+	src: url('../fonts/PressStart2P-Regular.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal; 
+}
+@font-face { 
+	font-family: 'VT323'; 
+	src: url('../fonts/VT323-Regular.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal; 
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	width: 100%; 
+	min-height: 100%;
+	position: absolute;
+	font-family: 'Press Start 2P', cursive;
+	background-color: #000000;
+	color: #00B945;
+	font-size: 14px;
+}
+
+/* INFO PAGE */
+.infopage {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	animation-name: loading;
+	animation-duration: 2.5s;
+}
+@keyframes loading {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+.title {
+	width: 100%;
+	text-align: center;
+	margin: 50px 0;
+}
+.title__logo {
+	font-size: 2.2em;
+	text-shadow: 2px 2px 0 #000000, 3px 3px 0 #FFFFFF;
+	text-transform: uppercase;
+	color: #B12C49;
+}
+.mission {
+	width: 90%;
+}
+.mission p {
+	font-family: 'VT323', cursive;
+	font-size: 2em;
+}
+.mission__title,
+.worksheet__hero--title,
+.worksheet__background--title,
+.worksheet__form--title {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 #000000, 1.5px 1.5px 0 #FFFFFF;
+}
+.worksheet {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	position: relative;
+}
+.worksheet__hero {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 35px;
+}
+.worksheet__hero--first,
+.worksheet__hero--second {
+	width: 200px;
+	height: 150px;
+	box-shadow : 0 0 30px 20px black inset;
+}
+.worksheet__hero--first {
+	background: url(../images/hero1.gif);
+	background-position: 0% 0%;
+}
+.worksheet__hero--second {
+	background: url(../images/hero2.gif);
+	background-position: 0% 0%;
+}
+input[type="radio"] {
+	width: 20px; 
+	height: 20px;
+	cursor: pointer;
+}
+.worksheet__background {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 35px;
+}
+.worksheet__background--first,
+.worksheet__background--second,
+.worksheet__background--third,
+.worksheet__background--fourth {
+	width: 250px;
+	height: 200px;
+	box-shadow : 0 0 30px 20px black inset;
+	margin-left: 20px;
+}
+.worksheet__background--first {
+	background: url(../images/bg1.gif);
+	background-position: 50% 50%;
+}
+.worksheet__background--second {
+	background: url(../images/bg2.gif);
+	background-position: 60% 80%
+}
+.worksheet__background--third {
+	background: url(../images/bg3.gif);
+	background-position: 45% 15%;
+}
+.worksheet__background--fourth {
+	background: url(../images/bg4.gif);
+	background-position: 100% 40%;
+}
+.worksheet__form {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 35px 0 20px 0;
+}
+.worksheet__form input[type=text] {
+	width: 120px;
+	height: 35px;
+	outline: none;
+	margin-left: 20px;
+	border: 1px solid #B12C49;
+	border-radius: 5px;
+	font-family: 'VT323', cursive;
+	font-size: 1.5em;
+	text-align: center;
+	color: #B12C49;
+	background-color: #000000;
+}
+.worksheet__form input[type=text]:focus {
+	background-color: #FFFFFF;
+}
+.worksheet__form--button,
+.feedback__input--button,
+.winnerpage__button {
+	width: 120px;
+	height: 35px;
+	position: relative;
+	font-family: 'Press Start 2P', cursive;
+	margin-left: 20px;
+	padding: 12px 25px;
+	background-color: #B12C49;
+	color: #FFFFFF;
+	cursor: pointer;
+	transition: .5s ease all;
+	text-shadow: 1px 1px 0 #000000;
+	outline: none;
+	border: none;
+}
+.worksheet__form--button:hover,
+.feedback__input--button:hover {
+	background: #000000;
+	color: #00B945;
+	text-shadow: 0.5px 0.5px 0 #FFFFFF;
+}
+.worksheet__form--button:before, 
+.worksheet__form--button:after,
+.feedback__input--button:before, 
+.feedback__input--button:after {
+	content: '';
+	width: 0;
+	height: 1px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #00B945;
+	transition: .25s ease all;
+}
+.worksheet__form--button:after,
+.feedback__input--button:after {
+	top: inherit;  
+	right: inherit;
+	left: 0;
+	bottom: 0;
+}
+.worksheet__form--button:hover:before,
+.worksheet__form--button:hover:after,
+.feedback__input--button:hover:before,
+.feedback__input--button:hover:after {
+	width: 100%;
+	transition: .25s ease all;
+}
+/* end INFO PAGE */
