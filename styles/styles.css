@@ -205,3 +205,218 @@ input[type="radio"] {
 	transition: .25s ease all;
 }
 /* end INFO PAGE */
+
+/* GAME PAGE */
+.gamepage {
+	display: none; 
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #B12C49;
+	text-shadow: .5px .5px 0 #FFFFFF;
+	animation-name: loading;
+	animation-duration: 2.5s;
+}
+.field {
+	width: 800px;
+	height: 336px;
+	position: relative;
+	top: calc( 50% - 336px/2 - 150px/2 );
+	left: calc( 50% - 400px );
+}
+/* hero 1 */
+#hero1 {
+	transform: scale(2);
+	position: absolute;
+	top: 220px;
+	left: 340px;
+	width: 75px; 
+	height: 75px;
+	background: url(../images/hero1.png);
+	background-position: 0px -80px;
+}
+#hero1.active1_hero1 {
+	animation: punch1 .1s steps(3) infinite;
+}
+#hero1.active2_hero1 {
+	animation: protect1 .2s steps(2) infinite;
+}
+#hero1.active3_hero1 {
+	animation: lost1 .1s steps(2);
+	animation-fill-mode: forwards;
+}
+@keyframes punch1 {
+    from { background-position: 10px -80px; }
+    to { background-position: -205px -80px; }
+}
+@keyframes protect1 {
+    from { background-position: 0px 0px; }
+    to { background-position: 5px -80px; }
+}
+@keyframes lost1 {
+    50% { background-position: 0px -80px; }
+    70% { background-position: -152px 0px; 
+		  left: 300px; }
+	100% { background-position: -152px 0px; 
+		   left: 250px; }
+}
+/* hero 2 */
+#hero2 {
+	transform: scale(2);
+	position: absolute;
+	top: 230px;
+	left: 410px;
+	width: 80px; 
+	height: 75px;
+	background: url(../images/hero2.png);
+	background-position: -100px -72px;
+}
+#hero2.active1_hero2 {
+	animation: punch2 .1s steps(2) infinite;
+}
+#hero2.active2_hero2 {
+	animation: protect2 .1s steps(2) infinite;
+}
+#hero2.active3_hero2 {
+	animation: lost2 .1s steps(2);
+	animation-fill-mode: forwards;
+}
+@keyframes punch2 {
+    from { background-position: -270px -72px; }
+    to { background-position: -100px -72px; }
+}
+@keyframes protect2 {
+    from { background-position: -100px 0px; }
+    to { background-position: -270px -72px; }
+}
+@keyframes lost2 {
+    50% { background-position: -90px 0px; }
+    70% { background-position: -5px 0px; 
+		  left: 450px; }
+	100% { background-position: -5px 0px; 
+           left: 475px; }
+}
+/* data */
+.data {
+	width: 800px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.data__hero1 {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+.data__hero1--face {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	border-radius: 50%;
+	background-image: url(../images/face1.gif);
+	background-color: #000000;	
+	box-shadow: 0 0 10px 5px #00B945 inset;
+	z-index: 1;
+}
+.data__hero1--name {
+	width: calc( 100% - 90px );
+	height: 30px;
+	position: absolute;
+	top: 5px;
+	left: 95px;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 0 #000000;
+	text-transform: uppercase;
+}
+.data__hero1--life {
+	width: 0;
+	height: 30px;
+	position: absolute;
+	top: calc( 90px/2 - 30px/2 );
+	left: 85px;
+	background: linear-gradient(to right, rgba(0,0,0,0.1), #00B945);
+}
+.data__hero2 {
+	width: calc( 50% - 5px );
+	position: absolute;
+	top: 5px;
+	left: 50%;
+}
+.data__hero2--face {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	background-image: url(../images/face2.gif);
+	background-color: #000000;	
+	box-shadow: 0 0 10px 5px #00B945 inset;
+	z-index: 1;
+}
+.data__hero2--name {
+	height: 30px;
+	position: absolute;
+	top: 5px;
+	right: 95px;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 0 #000000;
+	text-transform: uppercase;
+}
+.data__hero2--life {
+	width: 0;
+	height: 30px;
+	position: absolute;
+	top: calc( 90px/2 - 30px/2 );
+	right: 85px;
+	background: linear-gradient(to left, rgba(0,0,0,0.1), #00B945);
+}
+.versus {
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	top: 15px;
+	right: calc( 50% - 70px/2 );
+	border-radius: 50%;
+	background: radial-gradient(circle at 55% 15%, #00B945, black);
+	box-shadow: 0 3px 3px rgba(0,0,0,0.5), 0 -7px 7px rgba(255,255,255,0.5);
+	z-index: 1;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 30px;
+}
+.versus span {
+	text-shadow: 2px 2px 0 #000000;
+}
+/* feedback */
+.feedback {
+	width: 800px;
+	height: 150px;
+	position: relative;
+	top: calc( 50% - 336px/2 - 150px/2 );
+	left: calc( 50% - 400px );
+}
+.feedback__input {
+	width: 210px;
+	height: 35px;
+	position: absolute;
+	top: 110px;
+	left: calc( 50% - 105px );
+}
+.feedback__input--field  {
+	width: 50px;
+	height: 35px;
+	padding-top: 3px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	font-family: 'VT323', cursive;
+	font-size: 1.5em;
+	text-align: center;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+
