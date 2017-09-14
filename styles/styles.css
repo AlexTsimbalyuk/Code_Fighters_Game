@@ -23,6 +23,8 @@ body {
 	font-size: 14px;
 }
 
+
+
 /* INFO PAGE */
 .infopage {
 	width: 100%;
@@ -46,6 +48,7 @@ body {
 	text-shadow: 2px 2px 0 #000000, 3px 3px 0 #FFFFFF;
 	text-transform: uppercase;
 	color: #B12C49;
+	line-height: 1.5;
 }
 .mission {
 	width: 90%;
@@ -64,6 +67,7 @@ body {
 	font-size: 1.2em;
 	text-transform: uppercase;
 	text-shadow: 1px 1px 0 #000000, 1.5px 1.5px 0 #FFFFFF;
+	line-height: 1.5;
 }
 .worksheet {
 	display: flex;
@@ -85,6 +89,7 @@ body {
 	width: 200px;
 	height: 150px;
 	box-shadow : 0 0 30px 20px black inset;
+	margin: 20px;
 }
 .worksheet__hero--first {
 	background: url(../images/hero1.gif);
@@ -113,7 +118,7 @@ input[type="radio"] {
 	width: 250px;
 	height: 200px;
 	box-shadow : 0 0 30px 20px black inset;
-	margin-left: 20px;
+	margin: 20px;
 }
 .worksheet__background--first {
 	background: url(../images/bg1.gif);
@@ -142,7 +147,7 @@ input[type="radio"] {
 	width: 120px;
 	height: 35px;
 	outline: none;
-	margin-left: 20px;
+	margin: 20px;
 	border: 1px solid #B12C49;
 	border-radius: 5px;
 	font-family: 'VT323', cursive;
@@ -170,6 +175,9 @@ input[type="radio"] {
 	text-shadow: 1px 1px 0 #000000;
 	outline: none;
 	border: none;
+}
+.worksheet__form--button {
+	margin: 20px;
 }
 .worksheet__form--button:hover,
 .feedback__input--button:hover {
@@ -205,6 +213,8 @@ input[type="radio"] {
 	transition: .25s ease all;
 }
 /* end INFO PAGE */
+
+
 
 /* GAME PAGE */
 .gamepage {
@@ -439,7 +449,40 @@ input[type="radio"] {
 	color: #000000;
 	background-color: #FFFFFF;
 }
+/* --- media queries GAME PAGE --- */
+@media screen and (max-width: 800px) {
+	.gamepage {
+		transform: scale(0.75);
+	}
+}
+@media screen and (max-width: 600px) {
+	.gamepage {
+		transform: scale(0.5);
+	}
+	.feedback__input {
+		width: 315px;
+		height: 52.5px;
+		left: calc( 50% - 157.5px );
+	}
+	.feedback__input--field  {
+		width: 75px;
+		height: 52.5px;
+		font-size: 2.5em;
+	}
+	.feedback__input--button {
+		width: 180px;
+		height: 52.5px;
+		font-size: 1.5em;
+	}
+}
+@media screen and (max-width: 400px) {
+	.gamepage {
+		transform: scale(0.35);
+	}
+}
 /* end GAME PAGE */
+
+
 
 /* WINNER PAGE */
 .winnerpage {
@@ -505,3 +548,30 @@ input[type="radio"] {
 .winnerpage__button:hover {
 	background-color: #00B945; 
 }
+/* --- media queries WINNER PAGE --- */
+@media screen and (max-width: 700px) {
+	.winnerpage {
+		transform: scale(0.75);
+	}
+	.winnerpage__message {
+		width: 125%;
+	}
+}
+@media screen and (max-width: 580px) {
+	.winnerpage {
+		transform: scale(0.5);
+	}
+	.winnerpage__message {
+		width: 175%;
+	}
+	.winnerpage__message,
+	.winnerpage__button {
+		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 400px) {
+	.winnerpage__message {
+		font-size: 1.1em;
+	}
+}
+/* end WINNER PAGE */

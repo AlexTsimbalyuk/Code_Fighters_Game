@@ -1,40 +1,41 @@
-/* audio */
+// audio 
 var mainSound1 = new Audio(); 
-mainSound1.src = "sound/main1.mp3";
-mainSound1.play();
-mainSound1.loop = true;
+	mainSound1.src = "sound/main1.mp3";
+	mainSound1.play();
+	mainSound1.loop = true;
 
 var mainSound2 = new Audio(); 
-mainSound2.src = "sound/main2.mp3";
+	mainSound2.src = "sound/main2.mp3";
 
 var punchSound1 = new Audio(); 
-punchSound1.src = "sound/punch1.mp3";
+	punchSound1.src = "sound/punch1.mp3";
 
 var punchSound2 = new Audio(); 
-punchSound2.src = "sound/punch2.mp3";
+	punchSound2.src = "sound/punch2.mp3";
 
 var deadSound1 = new Audio(); 
-deadSound1.src = "sound/dead1.mp3";
+	deadSound1.src = "sound/dead1.mp3";
 
 var deadSound2 = new Audio(); 
-deadSound2.src = "sound/dead2.mp3";
+	deadSound2.src = "sound/dead2.mp3";
 
 var winSound = new Audio(); 
-winSound.src = "sound/win.mp3";
+	winSound.src = "sound/win.mp3";
 
 var loseSound = new Audio(); 
-loseSound.src = "sound/lose.mp3";
+	loseSound.src = "sound/lose.mp3";
 
 var errorSound = new Audio(); 
-errorSound.src = "sound/error.mp3";
+	errorSound.src = "sound/error.mp3";
 
 var flag1;
 var flag2;
 var flag3;
 
 var bg = document.querySelector(".field");
-var bgArr = [ "images/bg1.gif", "images/bg2.gif", "images/bg3.gif", "images/bg4.gif" ];
-var enemyArr = [""];
+var bgArr = [ "images/bg1.gif", "images/bg2.gif", "images/bg3.gif", "images/bg4.gif" ]; // game location
+
+var enemyArr = [""]; // array for storing the opponent's code
 
 var hero1Name = document.querySelector(".data__hero1--name");
 var hero2Name = document.querySelector(".data__hero2--name");
@@ -52,6 +53,8 @@ var winnerArr = [ "images/winner1.gif", "images/winner2.gif" ];
 
 var newGame = document.querySelector(".winnerpage__button");
 
+
+// constructor for creating heroes 
 function Hero( name, code, life, sprite ) { 
 
 	this.name = name;
@@ -60,11 +63,12 @@ function Hero( name, code, life, sprite ) {
 	this.sprite = sprite;
 }
 
-/* Form Validation */
+
+// form validation 
 function validation( form ) {
 	
 	var elems = form.elements;
-	console.log( typeof elems.code.value ); // string
+//	console.log( typeof elems.code.value ); // string
 	
 	var reg = /[0-9]{3}/;
 	
@@ -109,7 +113,8 @@ function validation( form ) {
 	elems.name.value = "";
 }
 
-/* set battlefield */
+
+// set location 
 function setField( form, arr ) {
 	
 	var elems = form.elements;
@@ -127,7 +132,8 @@ function setField( form, arr ) {
 	createHeroes(elems.name.value, arr, life1, life2);
 }
 
-/* Assign properties to heroes and call the constructor */
+
+// assign properties to heroes and call the constructor 
 function createHeroes( name, code, life1, life2 ) {
 	
     for ( var i = 0; i < heroChoice.length; i++ ) {
@@ -167,18 +173,20 @@ function createHeroes( name, code, life1, life2 ) {
 	console.log("code 2 hero: " + hero2.code);
 }
 
-/* Assign a code to an opponent */
+
+// assign a code to an opponent 
 function setRandomCode(){ 
 
 	var arr = [];
 	
 	for ( var i = 0; i < 3; i++ ) {
-		arr.push( Math.floor( Math.random() * 3 ));
+		arr.push( Math.floor( Math.random() * 10 ));
 	}
 	return checkRandomCode( arr );
 }
 
-/* Checking the opponent's code */
+
+// checking the opponent's code 
 function checkRandomCode( arr ){
 	
 	for ( var i = 0; i < arr.length; i++ ) {
@@ -192,15 +200,14 @@ function checkRandomCode( arr ){
 	}
 	return arr;
 }
-	
+
+
+// sprites of heroes 
 var sprite1 = document.getElementById( "hero1" );
-var hit1 = document.getElementById( "hit1" );
-var lost1 = document.getElementById( "lost1" );
-
 var sprite2 = document.getElementById( "hero2" );
-var hit2 = document.getElementById( "hit2" );
-var lost2 = document.getElementById( "lost2" );
 
+
+// hero 1 hitting animation
 function getHit1() {
 	
 	hero1.sprite.classList.add("active1_hero1");
@@ -211,6 +218,9 @@ function getHit1() {
 		hero2.sprite.classList.remove("active2_hero2");
 	}, 200);
 }
+
+
+// animation of the hero's 1 death
 function getLost1() {
 
 	hero1.sprite.classList.add("active1_hero1");
@@ -221,6 +231,8 @@ function getLost1() {
 	}, 200);
 }
 
+
+// hero 2 hitting animation
 function getHit2() {
 
 	hero2.sprite.classList.add("active1_hero2");
@@ -231,6 +243,9 @@ function getHit2() {
 		hero1.sprite.classList.remove("active2_hero1");
 	}, 100);
 }
+
+
+// animation of the hero's 2 death
 function getLost2() {
 
 	hero2.sprite.classList.add("active1_hero2");
@@ -241,17 +256,22 @@ function getLost2() {
 	}, 200);
 }
 
-/* feedback section */
+
+// variables for feedback section 
 var message = document.querySelector( ".feedback__message" );
 var punchField = document.querySelector( ".feedback__input--field" );
 var punchBtn = document.querySelector( ".feedback__input--button" );
 
+
+// display message animation 
 function typing( hero ){
 	
-	punchBtn.addEventListener( "click", handler );
+	// add an event listener when the button 'punch' is clicked
+	punchBtn.addEventListener( "click", handler ); 
 	
 	flag2 = true;
-
+	
+	// assign a value to the flag3 
 	if( hero == hero1 ){
 		flag3 = true;
 	} else {
@@ -267,6 +287,8 @@ function typing( hero ){
 	punchBtn.style.cursor = "pointer";
 }
 
+
+// display of the lives of the hero
 function setLife( hero ){
 	
 	hero.life.style.transition = "2s";
@@ -274,6 +296,8 @@ function setLife( hero ){
 	hero.life.style.width = hero.code.length * x + "px";
 }
 
+
+// adding animation
 function addAnimation() {
 	
 	setTimeout(function() {
@@ -281,25 +305,35 @@ function addAnimation() {
 	}, 100);
 }
 
+
+// delete animation
 function delAnimation() {
 	
 	message.classList.remove("active");
 }
 
+
+// button 'punch' click handler
 function handler() {
 	
 		if ( flag1 && !isNaN( parseFloat( punchField.value ) ) && isFinite(punchField.value) ) {
+			
+			// call checking the entered number
 			punchTest( punchField.value, hero2 );
 			punchField.value = "";
 			return;
 		} 
 		if ( !flag1 && !isNaN( parseFloat(punchField.value) ) && isFinite(punchField.value) ) {
+			
+			// call checking the entered number
 			punchTest( punchField.value, hero1 );
 			punchField.value = "";
 			return;
 		}
 }
 
+
+// check the entered number
 function punchTest( value, hero ) {
 			
 	punchBtn.removeEventListener( "click", handler );
@@ -387,6 +421,8 @@ function punchTest( value, hero ) {
 	}
 }
 
+
+// displays the winner 
 function displayWinnerPage( hero ){
 	
 	if ( hero == hero1 ){
@@ -398,6 +434,8 @@ function displayWinnerPage( hero ){
 	}
 }
 
+
+// displays the 'winner page'
 function toWinnerPage() {
 	
 	setTimeout(function() {
@@ -406,6 +444,8 @@ function toWinnerPage() {
 	}, 2500)
 }
 
+
+// an object that contains messages that reflect reaction to a punch
 var damage = {
 	
 	past: function( heroName ) {
@@ -442,18 +482,25 @@ var damage = {
 	}
 }
 
+
+// display the message that the enemy is striking 
+// and calling a function that will pick up a number for the punch
 function enemyPunch( hero ) {
 	
 	delAnimation();
 	addAnimation();
 	
 	message.innerHTML = hero.name + " strikes back";
+	
+	// calling a function that will pick up a number for the punch
 	randomEnemyNumber(hero);
 }
 
+
+// pick up a number for the punch
 function randomEnemyNumber( hero ) {
 	
-	var hit = Math.floor( Math.random() * 4 );
+	var hit = Math.floor( Math.random() * 10 );
 	
 	if ( check(hit) ){
 		randomEnemyNumber(hero);
@@ -461,9 +508,6 @@ function randomEnemyNumber( hero ) {
 	} else {
 		
 		enemyArr.push( hit );
-		console.log(hit);
-		console.log(hero.name);
-		console.log(flag1);
 		
 		if( flag1 ) {
 			
@@ -481,16 +525,23 @@ function randomEnemyNumber( hero ) {
 	}
 }
 
+
+// checking the number that the enemy picked up
 function check( hit ) {
 
 	for( var i = 0; i < enemyArr.length; i++ ){
+		
+		// if the number has already been - returned true
 		if ( hit == enemyArr[i] )
 			return true;
 	}	 
 	return false;
 }
 
+
+// click button 'new game' handler
 newGame.addEventListener( "click", startNewGame );
+
 
 function startNewGame(){
 	window.location.reload();
