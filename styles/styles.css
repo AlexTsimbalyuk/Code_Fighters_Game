@@ -398,6 +398,27 @@ input[type="radio"] {
 	top: calc( 50% - 336px/2 - 150px/2 );
 	left: calc( 50% - 400px );
 }
+.feedback__message {
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	font-size: 1.4em;
+	letter-spacing: 3px;
+	text-align: center;
+	width: 800px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: none; 
+}
+.feedback__message.active {
+	display: block;
+	-webkit-animation: typing 1s steps(50, end);					   
+}
+@-webkit-keyframes typing { 
+	from { width: 0; } 
+}
 .feedback__input {
 	width: 210px;
 	height: 35px;
@@ -418,5 +439,69 @@ input[type="radio"] {
 	color: #000000;
 	background-color: #FFFFFF;
 }
+/* end GAME PAGE */
 
-
+/* WINNER PAGE */
+.winnerpage {
+	width: 100%;
+	display: none;
+	justify-content: center;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 50%;
+	margin-top: -310px;
+	animation-name: loading;
+	animation-duration: 2.5s;
+}
+.winnerpage__title {
+	width: 100%;
+	margin-bottom: 50px;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 0 #000000, 1.5px 1.5px 0 #FFFFFF;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1.5;
+	-webkit-animation: title_blink .5s linear infinite;
+	animation: title_blink .5s linear infinite;
+}
+@keyframes title_blink {
+	100% { color: #FFFFFF; 
+		   text-shadow: 2px 2px 0 #FFFFFF; }
+}
+@-webkit-keyframes title_blink {
+	100% { color: #FFFFFF; 
+		   text-shadow: 2px 2px 0 #FFFFFF; }
+}
+.winnerpage__winner {
+	width: 250px;
+	height: 380px;
+	margin-bottom: 50px;
+	box-shadow : 0 0 30px 30px black inset;
+	background-position: 0% 0%;
+}
+.winnerpage__message {
+	width: 100%;
+	margin-bottom: 50px;
+	font-size: 1.4em;
+	letter-spacing: 3px;
+	text-align: center;
+	color: #B12C49;
+	text-shadow: 1px 1px 0 #000000, 2px 2px 0 #FFFFFF;
+	white-space: nowrap;
+	overflow: hidden;
+	position: absolute;
+	top: 500px;
+}
+.winnerpage__message.active {
+	-webkit-animation: typing 3s steps(50, end);
+}
+.winnerpage__button {
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	top: 570px;
+	margin-left: 0;
+}
+.winnerpage__button:hover {
+	background-color: #00B945; 
+}
